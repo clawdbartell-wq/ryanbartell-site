@@ -3,7 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ryan Bartell — AI-powered talent partner, operator, and builder. Recruiting, HR systems, and AI automation for small businesses and startups.">
+    <meta name="description" content="Ryan Bartell helps startups and small businesses hire better, build HR systems, and automate repetitive work with practical AI workflows.">
+    <meta name="author" content="Ryan Bartell">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0a0a0a">
+    <link rel="canonical" href="https://clawdbartell-wq.github.io/ryanbartell-site/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Ryan Bartell">
+    <meta property="og:title" content="Ryan Bartell — Operator & Builder">
+    <meta property="og:description" content="Talent acquisition, HR systems, and AI automation for startups and small businesses.">
+    <meta property="og:url" content="https://clawdbartell-wq.github.io/ryanbartell-site/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Ryan Bartell — Operator & Builder">
+    <meta name="twitter:description" content="Talent acquisition, HR systems, and AI automation for startups and small businesses.">
     <title>Ryan Bartell — Operator & Builder</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,29 +23,32 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
     <!-- Noise texture overlay -->
     <div class="noise-overlay"></div>
 
     <!-- Navigation -->
-    <nav class="nav" id="mainNav">
+    <nav class="nav" id="mainNav" aria-label="Primary navigation">
         <div class="nav-container">
-            <a href="#" class="nav-logo">
+            <a href="/" class="nav-logo" aria-label="Ryan Bartell home">
                 <span class="logo-bracket">&lt;</span>rb<span class="logo-bracket">/&gt;</span>
             </a>
-            <div class="nav-links">
+            <div class="nav-links" id="primaryNavLinks">
                 <a href="#work" class="nav-link">Work</a>
                 <a href="#build" class="nav-link">Build</a>
                 <a href="#connect" class="nav-link">Connect</a>
-                <a href="mailto:ryanbartell@trilliumhiring.com" class="nav-cta">Get In Touch</a>
+                <a href="mailto:ryanbartell@trilliumhiring.com" class="nav-cta" aria-label="Email Ryan Bartell">Get In Touch</a>
             </div>
-            <button class="nav-mobile-toggle" id="navMobileToggle" aria-label="Toggle menu">
+            <button class="nav-mobile-toggle" id="navMobileToggle" aria-label="Toggle menu" aria-controls="primaryNavLinks" aria-expanded="false">
                 <span></span><span></span><span></span>
             </button>
         </div>
     </nav>
 
+    <main id="main-content">
     <!-- Hero -->
-    <section class="hero">
+    <section class="hero" aria-labelledby="hero-title">
         <div class="hero-grid-bg"></div>
         <div class="container">
             <div class="hero-content">
@@ -41,34 +56,34 @@
                     <span class="status-dot"></span>
                     <span>Available for projects</span>
                 </div>
-                <h1 class="hero-title">
+                <h1 class="hero-title" id="hero-title" aria-label="Ryan Bartell builds systems that find people and the people that build.">
                     <span class="title-line">I build systems</span>
                     <span class="title-line accent">that find people</span>
                     <span class="title-line dim">and the people</span>
                     <span class="title-line">that build.</span>
                 </h1>
                 <p class="hero-subtitle">
-                    Operator at <a href="https://trilliumhiring.com" target="_blank" class="inline-link">Trillium Hiring</a> and <a href="https://trillycorp.com" target="_blank" class="inline-link">Trilly Corp</a>. 
+                    Operator at <a href="https://trilliumhiring.com" target="_blank" rel="noopener noreferrer" class="inline-link">Trillium Hiring</a> and <a href="https://trillycorp.com" target="_blank" rel="noopener noreferrer" class="inline-link">Trilly Corp</a>. 
                     I run recruiting, HR systems, and AI automation for small businesses and startups that need to scale without the bloat.
                 </p>
                 <div class="hero-cta">
                     <a href="#work" class="btn btn-primary">See What I Do</a>
-                    <a href="https://linkedin.com/in/ryan-bartell" target="_blank" class="btn btn-ghost">LinkedIn →</a>
+                    <a href="https://linkedin.com/in/ryan-bartell" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">LinkedIn →</a>
                 </div>
-                <div class="hero-metrics">
-                    <div class="metric">
+                <ul class="hero-metrics" aria-label="Ryan Bartell professional highlights">
+                    <li class="metric">
                         <span class="metric-value">100+</span>
                         <span class="metric-label">Hires Delivered</span>
-                    </div>
-                    <div class="metric">
+                    </li>
+                    <li class="metric">
                         <span class="metric-value">18K+</span>
                         <span class="metric-label">LinkedIn Messages</span>
-                    </div>
-                    <div class="metric">
+                    </li>
+                    <li class="metric">
                         <span class="metric-value">AI</span>
                         <span class="metric-label">Powered Pipeline</span>
-                    </div>
-                </div>
+                    </li>
+                </ul>
             </div>
         </div>
         <div class="scroll-hint">
@@ -79,11 +94,11 @@
     </section>
 
     <!-- What I Do -->
-    <section class="section work" id="work">
+    <section class="section work" id="work" aria-labelledby="work-title">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">// What I Do</span>
-                <h2 class="section-title">Talent meets technology</h2>
+                <h2 class="section-title" id="work-title">Talent meets technology</h2>
                 <p class="section-subtitle">I sit at the intersection of recruiting, HR operations, and AI automation — building the systems that help small teams hire like big ones.</p>
             </div>
             <div class="work-grid">
@@ -141,10 +156,10 @@
     </section>
 
     <!-- Companies -->
-    <section class="section companies">
+    <section class="section companies" aria-label="Ryan Bartell companies">
         <div class="container">
             <div class="companies-row">
-                <a href="https://trilliumhiring.com" target="_blank" class="company-card">
+                <a href="https://trilliumhiring.com" target="_blank" rel="noopener noreferrer" class="company-card">
                     <div class="company-logo">TH</div>
                     <div class="company-info">
                         <h3>Trillium Hiring</h3>
@@ -152,7 +167,7 @@
                     </div>
                     <span class="company-arrow">→</span>
                 </a>
-                <a href="https://trillycorp.com" target="_blank" class="company-card">
+                <a href="https://trillycorp.com" target="_blank" rel="noopener noreferrer" class="company-card">
                     <div class="company-logo">TC</div>
                     <div class="company-info">
                         <h3>Trilly Corp</h3>
@@ -165,15 +180,15 @@
     </section>
 
     <!-- Build Log -->
-    <section class="section build" id="build">
+    <section class="section build" id="build" aria-labelledby="build-title">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">// Build Log</span>
-                <h2 class="section-title">Things I've made</h2>
+                <h2 class="section-title" id="build-title">Things I've made</h2>
                 <p class="section-subtitle">Side projects, tools, and experiments. I build to learn and ship to ship.</p>
             </div>
             <div class="build-grid">
-                <a href="https://github.com/BTizzy/ski-conditions-aggregator" target="_blank" class="build-card">
+                <a href="https://github.com/BTizzy/ski-conditions-aggregator" target="_blank" rel="noopener noreferrer" class="build-card">
                     <div class="build-header">
                         <span class="build-type">Tool</span>
                         <span class="build-year">2026</span>
@@ -189,7 +204,7 @@
                     <h3>GoPro Highlight Editor</h3>
                     <p>GPS-based automatic highlight reel creation from GoPro footage using speed telemetry data.</p>
                 </a>
-                <a href="https://github.com/BTizzy/polymarket-ai-trader" target="_blank" class="build-card">
+                <a href="https://github.com/BTizzy/polymarket-ai-trader" target="_blank" rel="noopener noreferrer" class="build-card">
                     <div class="build-header">
                         <span class="build-type">AI</span>
                         <span class="build-year">2025</span>
@@ -197,7 +212,7 @@
                     <h3>Polymarket AI Trader</h3>
                     <p>Real-time prediction market trading with AI-powered market selection and volatility analysis.</p>
                 </a>
-                <a href="https://github.com/BTizzy/trillium-workflow" target="_blank" class="build-card">
+                <a href="https://github.com/BTizzy/trillium-workflow" target="_blank" rel="noopener noreferrer" class="build-card">
                     <div class="build-header">
                         <span class="build-type">System</span>
                         <span class="build-year">2026</span>
@@ -205,7 +220,7 @@
                     <h3>Trillium Workflow</h3>
                     <p>Email workflow system and visualization for Trillium Hiring's outreach and nurture sequences.</p>
                 </a>
-                <a href="https://github.com/BTizzy/kraken-ai-trader" target="_blank" class="build-card">
+                <a href="https://github.com/BTizzy/kraken-ai-trader" target="_blank" rel="noopener noreferrer" class="build-card">
                     <div class="build-header">
                         <span class="build-type">AI</span>
                         <span class="build-year">2025</span>
@@ -213,7 +228,7 @@
                     <h3>Kraken AI Trader</h3>
                     <p>High-frequency volatility scraper and mean reversion bot for Kraken crypto exchange. Real-time signals, automated execution.</p>
                 </a>
-                <a href="https://github.com/BTizzy" target="_blank" class="build-card build-card-more">
+                <a href="https://github.com/BTizzy" target="_blank" rel="noopener noreferrer" class="build-card build-card-more">
                     <div class="build-more-content">
                         <span class="build-more-icon">⚡</span>
                         <span class="build-more-text">See all on GitHub</span>
@@ -224,7 +239,7 @@
     </section>
 
     <!-- Bug Bounty Section -->
-    <section class="section bounty">
+    <section class="section bounty" aria-labelledby="bounty-title">
         <div class="container">
             <div class="bounty-inner">
                 <div class="bounty-icon">
@@ -233,30 +248,30 @@
                     </svg>
                 </div>
                 <div class="bounty-content">
-                    <h3>Also: Bug Bounty Hunter</h3>
+                    <h3 id="bounty-title">Also: Bug Bounty Hunter</h3>
                     <p>I hunt vulnerabilities in open-source AI/ML infrastructure. Critical submissions on BentoML and Ollama. Because if you're going to break things, get paid for it.</p>
                 </div>
-                <a href="https://github.com/BTizzy" target="_blank" class="btn btn-small btn-ghost">Proof →</a>
+                <a href="https://github.com/BTizzy" target="_blank" rel="noopener noreferrer" class="btn btn-small btn-ghost">Proof →</a>
             </div>
         </div>
     </section>
 
     <!-- Connect -->
-    <section class="section connect" id="connect">
+    <section class="section connect" id="connect" aria-labelledby="connect-title">
         <div class="container">
             <div class="connect-content">
-                <h2 class="connect-title">Need to hire?<br>Need a system?<br>Need it done.</h2>
+                <h2 class="connect-title" id="connect-title">Need to hire?<br>Need a system?<br>Need it done.</h2>
                 <p class="connect-subtitle">I don't do calls for calls. I do the work.</p>
                 <div class="connect-links">
                     <a href="mailto:ryanbartell@trilliumhiring.com" class="connect-link connect-link-primary">
                         <span class="connect-link-icon">✉</span>
                         ryanbartell@trilliumhiring.com
                     </a>
-                    <a href="https://linkedin.com/in/ryan-bartell" target="_blank" class="connect-link">
+                    <a href="https://linkedin.com/in/ryan-bartell" target="_blank" rel="noopener noreferrer" class="connect-link">
                         <span class="connect-link-icon">in</span>
                         LinkedIn
                     </a>
-                    <a href="https://github.com/BTizzy" target="_blank" class="connect-link">
+                    <a href="https://github.com/BTizzy" target="_blank" rel="noopener noreferrer" class="connect-link">
                         <span class="connect-link-icon">&lt;/&gt;</span>
                         GitHub
                     </a>
@@ -264,6 +279,7 @@
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
