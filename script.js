@@ -1,27 +1,43 @@
-// Nav scroll effect
 const nav = document.getElementById('mainNav');
-let lastScroll = 0;
 
 window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-
-    if (currentScroll > 50) {
+    if (window.pageYOffset > 50) {
         nav.classList.add('scrolled');
     } else {
         nav.classList.remove('scrolled');
     }
-
-    lastScroll = currentScroll;
 });
 
 // Mobile nav toggle
 const navMobileToggle = document.getElementById('navMobileToggle');
-const navLinks = document.querySelector('.nav-links');
+const navLinks = document.getElementById('primaryNavLinks');
+const navIsReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function closeNav() {
+    navLinks.classList.remove('active');
+    navMobileToggle.classList.remove('active');
+    navMobileToggle.setAttribute('aria-expanded', 'false');
+}
 
 if (navMobileToggle) {
     navMobileToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        navMobileToggle.classList.toggle('active');
+        const isOpen = navLinks.classList.toggle('active');
+        navMobileToggle.classList.toggle('active', isOpen);
+        navMobileToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            closeNav();
+            navMobileToggle.focus();
+        }
+    });
+
+    document.addEventListener('click', (event) => {
+        const target = event.target;
+        if (target instanceof Node && !nav.contains(target)) {
+            closeNav();
+        }
     });
 }
 
@@ -29,17 +45,24 @@ if (navMobileToggle) {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
+        closeNav();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
             const offset = 80;
             const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
             window.scrollTo({
                 top: targetPosition,
-                behavior: 'smooth'
+                behavior: navIsReducedMotion ? 'auto' : 'smooth'
             });
         }
     });
 });
+
+if (navIsReducedMotion) {
+    document.querySelectorAll('.work-card, .company-card, .build-card, .bounty-inner').forEach(el => {
+        el.classList.add('visible');
+    });
+}
 
 // Intersection Observer for fade-in animations
 const observerOptions = {
@@ -57,6 +80,7 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe elements for animation
 document.querySelectorAll('.work-card, .company-card, .build-card, .bounty-inner').forEach(el => {
+    if (navIsReducedMotion) return;
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
