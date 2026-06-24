@@ -62,7 +62,13 @@
     }, { passive: true });
 
     // Fade-in on scroll (IntersectionObserver)
+    // Default: content is VISIBLE. Only hide + animate when JS confirms IO is supported.
     if ('IntersectionObserver' in window) {
+        // Apply .js-fade class ONLY where IO can animate
+        document.querySelectorAll('.work-card, .build-card, .company-card, .section-header, .hero-content, .bounty-inner, .connect-content').forEach(function(el) {
+            el.classList.add('js-fade');
+        });
+
         const fadeObserver = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
@@ -70,29 +76,29 @@
                     fadeObserver.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
 
-        document.querySelectorAll('.fade-in').forEach(function(el) {
+        document.querySelectorAll('.js-fade').forEach(function(el) {
             fadeObserver.observe(el);
         });
+
+        // Hero: make visible immediately
+        window.requestAnimationFrame(function() {
+            document.querySelectorAll('.hero-content').forEach(function(el) {
+                el.classList.add('visible');
+            });
+        });
+
+        // Safety net: if anything is still hidden after 3 seconds (slow IO), force visible
+        setTimeout(function() {
+            document.querySelectorAll('.js-fade:not(.visible)').forEach(function(el) {
+                el.classList.add('visible');
+            });
+        }, 3000);
     } else {
-        // Fallback: show all immediately
-        document.querySelectorAll('.fade-in').forEach(function(el) {
-            el.classList.add('visible');
-        });
+        // No IO support — make sure all content is visible (it already is by default CSS)
+        // This branch is a no-op given our progressive enhancement CSS
     }
-
-    // Add fade-in to cards and section content
-    document.querySelectorAll('.work-card, .build-card, .company-card, .section-header, .hero-content, .bounty-inner, .connect-content').forEach(function(el) {
-        el.classList.add('fade-in');
-    });
-
-    // Trigger once on load (so hero is visible immediately)
-    window.requestAnimationFrame(function() {
-        document.querySelectorAll('.hero-content').forEach(function(el) {
-            el.classList.add('visible');
-        });
-    });
 
     // Smooth-scroll polyfill (already in CSS, but ensure anchors work)
     document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
